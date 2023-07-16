@@ -21,5 +21,9 @@ namespace Prototype1.Models
 
         public string? PaymentMethod { get; set; }
 
+        [Display(Name = "Email address")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string ? Email { get; set; }
+
     }
 }

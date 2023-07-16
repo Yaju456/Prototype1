@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ShowTicketsVM
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.tIcketsClass.ShowDate"></label>
+        <input asp-for="@Model.tIcketsClass.ShowDate" class="form-control" />
+        <span asp-validation-for="@Model.tIcketsClass.ShowDate"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.tIcketsClass.TotalTickets"></label>
+        <input asp-for="@Model.tIcketsClass.TotalTickets" class="form-control" />
+        <span asp-validation-for="@Model.tIcketsClass.TotalTickets"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.tIcketsClass.soldTickets"></label>
+        <input asp-for="@Model.tIcketsClass.soldTickets" class="form-control" />
+        <span asp-validation-for="@Model.tIcketsClass.soldTickets"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.tIcketsClass.Time"></label>
+        <input asp-for="@Model.tIcketsClass.Time" class="form-control" />
+        <span asp-validation-for="@Model.tIcketsClass.Time"></span>
+    </div>
+
+    <div class="form-group" style="margin-bottom:10px;">
+        <label asp-for="@Model.tIcketsClass.ShowID"></label>
+        <select asp-for="@Model.tIcketsClass.ShowID" asp-items="@Model.obj" class="form-control" >
+            <option selected disabled>--Select Options--</option>
+        </select>
+        <span asp-validation-for="@Model.tIcketsClass.Time"></span>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Enter" />
+</form>

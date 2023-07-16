@@ -1,10 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Prototype1.Data;
+using Prototype1.Repository;
+using Prototype1.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IMainRepo, MainRepo>();
 builder.Services.AddDbContext<ApplicationDbConetext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("connect_to_db")));
 var app = builder.Build();

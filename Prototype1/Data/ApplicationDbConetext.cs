@@ -11,8 +11,8 @@ namespace Prototype1.Data
         }
 
         DbSet<ShowClass> Show { get; set; }
-        DbSet<ShowDateClass> ShowDate { get; set; }
-        DbSet<ShowTIcketsClass> showTickets { get; set; }
+        public DbSet<ShowDateClass> ShowDate { get; set; }
+        public DbSet<ShowTIcketsClass> showTickets { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

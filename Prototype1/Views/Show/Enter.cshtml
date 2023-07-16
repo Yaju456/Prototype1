@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ShowClass
+<form method="post" enctype="multipart/form-data">
+    <input hidden asp-for="@Model.Id" />
+    <img src="@Model.imgurl" style="width:50%;"/>
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <input asp-for="@Model.Name" class="form-control" />
+        <span asp-validation-for="@Model.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.StartDate"></label>
+        <input asp-for="@Model.StartDate" class="form-control" />
+        <span asp-validation-for="@Model.StartDate"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.EndDate"></label>
+        <input asp-for="@Model.EndDate" class="form-control" />
+        <span asp-validation-for="@Model.EndDate"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Description"></label>
+        <input asp-for="@Model.Description" class="form-control" />
+        <span asp-validation-for="@Model.Description"></span>
+    </div>
+
+    <div class="form-group" style="margin-bottom:10px">
+        <label asp-for="@Model.imgurl"></label>
+        <input type="file" name="imgfile" class="form-control"/>
+    </div>
+
+    <input type="submit" value="Enter" />
+</form>
