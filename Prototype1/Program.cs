@@ -1,8 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Prototype1.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<ApplicationDbConetext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("connect_to_db")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

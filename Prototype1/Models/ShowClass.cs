@@ -22,6 +22,6 @@ namespace Prototype1.Models
         public string? Description { get; set; }
 
         [ValidateNever]
-        public string imgurl { get; set; }
+        public string ? imgurl { get; set; }
     }
 }
