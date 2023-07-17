@@ -5,20 +5,30 @@ $(document).ready(function () {
 
 function loadDataTable() {
     dataTable = $('#tblData').DataTable({
-        "ajax": { url: '/show/getshows' },
+        "ajax": { url: '/Ticket/getshows' },
         "columns": [
-            { data: 'showDate', "width": "15%" },
-            { data: 'totalTickets', "width": "15%" },
+            {
+                data: 'showDate', "render": function (data) {
+
+                    return `<div class="from-group" >
+                  
+                    ${data.slice(0, 10)}
+                    </div>`
+                }, "width": "15%" },
+            {
+                data: 'totalTickets', "width": "15%"
+            },
             { data: 'soldTickets', "width": "15%" },
             { data: 'time', "width": "15%" },
             { data: 'show.name', "width": "15%" },
+
             {
                 data: 'id',
                 "render": function (data) {
 
                     return `<div class="from-group btn-group" role="group">
-                    <a href="/show/Enter?id=${data}" class="btn btn-primary mx-2">Edit</a>
-                    <a OnClick=Delete('/show/Delete/${data}') class="btn btn-danger mx-2">Delete</a> 
+                    <a href="/Ticket/EnterShow?id=${data}" class="btn btn-primary mx-2">Edit</a>
+                    <a OnClick=Delete('/Ticket/Delete/${data}') class="btn btn-danger mx-2">Delete</a> 
                     </div>`
                 },
                 "width": "15%"

@@ -6,7 +6,9 @@
 @model ShowClass
 <form method="post" enctype="multipart/form-data">
     <input hidden asp-for="@Model.Id" />
+
     <img src="@Model.imgurl" style="width:50%;"/>
+    <input hidden asp-for="@Model.imgurl" />
     <div class="form-group">
         <label asp-for="@Model.Name"></label>
         <input asp-for="@Model.Name" class="form-control" />
@@ -14,13 +16,13 @@
     </div>
     <div class="form-group">
         <label asp-for="@Model.StartDate"></label>
-        <input asp-for="@Model.StartDate" class="form-control" />
+        <input asp-for="@Model.StartDate" class="form-control" id="inputdate" />
         <span asp-validation-for="@Model.StartDate"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="@Model.EndDate"></label>
-        <input asp-for="@Model.EndDate" class="form-control" />
+        <input asp-for="@Model.EndDate" class="form-control" id="inputdate" />
         <span asp-validation-for="@Model.EndDate"></span>
     </div>
 
@@ -37,3 +39,7 @@
 
     <input type="submit" value="Enter" />
 </form>
+@section Scripts
+    {
+    <script src="/js/DateManager.js"></script>
+}

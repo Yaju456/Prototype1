@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Identity.Client;
 using Prototype1.Data;
 using Prototype1.Models;
 using Prototype1.Repository.IRepository;
+using Prototype1.Utility;
 using Prototype1.ViewModel;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -30,10 +32,12 @@ namespace Prototype1.Controllers
             return View();
         }
 
+     
         [HttpGet]
-        public IActionResult GetShows()
+        public IActionResult MainShow()
         {
-            List<ShowTIcketsClass> lili =_db.showTickets.GetAll(IncludeProperties: "Show").ToList();
+            List<ShowClass> lili= _db.showClass.GetAll().ToList();
+
             return Json(new { data = lili });
         }
         public IActionResult Enter(int? id=null)
@@ -72,7 +76,7 @@ namespace Prototype1.Controllers
                     imgfile.CopyTo(filestream);
                 }
 
-                lili.imgurl = @"\Images\Product\" + fileName;
+                lili.imgurl = @"\Images\Drama\" + fileName;
             }
 
             if (lili.Id== 0)
@@ -92,46 +96,29 @@ namespace Prototype1.Controllers
                     _db.showTickets.Add(dada);
                 }
             }
-            else
-            {
-                _db.showClass.Update(lili);
-                _db.save();
-                ShowClass lili2 = new ShowClass();
-                lili2 = _db.showClass.GetSome(u => u.Name == lili.Name);
-                foreach (DateTime day in EachDay(lili.StartDate, lili.EndDate))
-                {
-                    ShowTIcketsClass dada = new ShowTIcketsClass();
-                    dada= _databud.showTickets.AsEnumerable().Where((u)=> {
-                        return u.ShowDate == day && u.ShowID == lili2.Id;
-                        }).FirstOrDefault();
-                    dada.TotalTickets = 120;
-                    dada.Time = "5:00 pm";
-                    dada.ShowDate = day;
-                    dada.soldTickets = 0;
-                    dada.ShowID = lili2.Id;
-                    _db.showTickets.update(dada);
-                }
-            }
-
             _db.save();
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult EnterShow(int? id = null)
+        public IActionResult Delete(int id)
         {
-            ShowTicketsVM dada = new ShowTicketsVM();
-            IEnumerable<SelectListItem> Showlist = _db.showClass.GetAll().Select(u => new SelectListItem
+            var ToDelete = new ShowClass();
+            ToDelete = _db.showClass.GetSome(u => u.Id == id);
+            if (ToDelete == null)
             {
-                Text = u.Name,
-                Value = u.Id.ToString(),
-            });
-            dada.obj = Showlist;
-            dada.tIcketsClass = new ShowTIcketsClass();
-            if (id != null)
-            {
-                dada.tIcketsClass= _db.showTickets.GetSome(u => u.Id == id);
+                return Json(new
+                {
+                    success = false,
+                    message = "Error while Deleting"
+                });
             }
-            return View(dada);
+
+            IQueryable<ShowTIcketsClass> lili = _db.showTickets.GetAll(IncludeProperties: "Show").AsQueryable();
+            lili=lili.Where(x=>x.ShowID == ToDelete.Id);
+            _databud.showTickets.RemoveRange(lili);
+            _db.showClass.Delete(ToDelete);
+            _db.save();
+            return Json(new { success = true, message = "Successfully Deleted" });
         }
     }
 }

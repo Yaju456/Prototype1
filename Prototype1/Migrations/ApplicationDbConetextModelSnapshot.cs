@@ -49,7 +49,7 @@ namespace Prototype1.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Show");
+                    b.ToTable("Show", (string)null);
                 });
 
             modelBuilder.Entity("Prototype1.Models.ShowDateClass", b =>
@@ -79,7 +79,7 @@ namespace Prototype1.Migrations
 
                     b.HasIndex("ShowTicketID");
 
-                    b.ToTable("ShowDate");
+                    b.ToTable("ShowDate", (string)null);
                 });
 
             modelBuilder.Entity("Prototype1.Models.ShowTIcketsClass", b =>
@@ -110,7 +110,7 @@ namespace Prototype1.Migrations
 
                     b.HasIndex("ShowID");
 
-                    b.ToTable("showTickets");
+                    b.ToTable("showTickets", (string)null);
                 });
 
             modelBuilder.Entity("Prototype1.Models.ShowDateClass", b =>

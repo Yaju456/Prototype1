@@ -5,9 +5,10 @@
 }
 @model ShowTicketsVM
 <form method="post">
+    <input hidden asp-for="@Model.tIcketsClass.Id" />
     <div class="form-group">
         <label asp-for="@Model.tIcketsClass.ShowDate"></label>
-        <input asp-for="@Model.tIcketsClass.ShowDate" class="form-control" />
+        <input asp-for="@Model.tIcketsClass.ShowDate" id="inputdate" class="form-control" />
         <span asp-validation-for="@Model.tIcketsClass.ShowDate"></span>
     </div>
 
@@ -39,3 +40,9 @@
 
     <input type="submit" class="btn btn-primary" value="Enter" />
 </form>
+
+
+@section Scripts
+    {
+    <script src="/js/DateManager.js"></script>
+}
