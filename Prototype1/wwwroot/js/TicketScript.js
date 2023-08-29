@@ -27,8 +27,9 @@ function loadDataTable() {
                 "render": function (data) {
 
                     return `<div class="from-group btn-group" role="group">
-                    <a href="/Ticket/EnterShow?id=${data}" class="btn btn-primary mx-2">Edit</a>
-                    <a OnClick=Delete('/Ticket/Delete/${data}') class="btn btn-danger mx-2">Delete</a> 
+                    <a href="/Ticket/EnterShow?id=${data}" class="btn btn-primary  mx-1 btn-sm">Edit</a>
+                    <a OnClick=Delete('/Ticket/Delete/${data}') class="btn btn-danger mx-1 btn-sm">Delete</a>
+                    <a href="/Date/Enter?id=${data}" class="btn btn-success mx-1 btn-sm">Create</a>
                     </div>`
                 },
                 "width": "15%"

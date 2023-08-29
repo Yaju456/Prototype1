@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Prototype1.Data;
 using Prototype1.Models;
 using Prototype1.Repository.IRepository;
@@ -39,34 +40,51 @@ namespace Prototype1.Controllers
         }
         public IActionResult EnterShow(int? id = null)
         {
-            ShowTicketsVM dada = new ShowTicketsVM();
-            IEnumerable<SelectListItem> Showlist = _db.showClass.GetAll().Select(u => new SelectListItem
+           
+                IEnumerable<SelectListItem> Showlist = _db.showClass.GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString(),
+                });
+            ShowTicketsVM dada = new()
             {
-                Text = u.Name,
-                Value = u.Id.ToString(),
-            });
-            dada.obj = Showlist;
-            dada.tIcketsClass = new ShowTIcketsClass();
-            if (id != 0)
+                obj= Showlist,
+                tIcketsClass= new ShowTIcketsClass()
+            };
+            if (id != null)
             {
                 dada.tIcketsClass = _db.showTickets.GetSome(u => u.Id == id);
             }
+          
             return View(dada);
         }
 
         [HttpPost]
         public IActionResult EnterShow(ShowTicketsVM dada)
         {
-            if (dada.tIcketsClass.Id == 0)
+            if (ModelState.IsValid)
             {
-                _db.showTickets.Add(dada.tIcketsClass);
+                if (dada.tIcketsClass.Id == 0)
+                {
+                    _db.showTickets.Add(dada.tIcketsClass);
+                }
+                else
+                {
+                    _db.showTickets.update(dada.tIcketsClass);
+                }
+                _db.save();
+                return RedirectToAction("Index");
             }
             else
             {
-                _db.showTickets.update(dada.tIcketsClass);
+                IEnumerable<SelectListItem> Showlist = _db.showClass.GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString(),
+                });
+                dada.obj = Showlist;
+                return View(dada);
             }
-            _db.save();
-            return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)

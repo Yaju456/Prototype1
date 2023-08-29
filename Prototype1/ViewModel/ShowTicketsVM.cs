@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Prototype1.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Prototype1.ViewModel
 {

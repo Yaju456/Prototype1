@@ -56,7 +56,11 @@ namespace Prototype1.Controllers
         [HttpPost]
         public IActionResult Enter(ShowClass lili, IFormFile? imgfile)
         {
-            string wwwRootPath = _webHostEnvironment.WebRootPath;//for www root folder path
+            if (ModelState.IsValid)
+            {
+
+            
+                string wwwRootPath = _webHostEnvironment.WebRootPath;//for www root folder path
 
             if (imgfile != null)
             {
@@ -98,6 +102,13 @@ namespace Prototype1.Controllers
             }
             _db.save();
             return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View(lili);
+            }
+            
+          
         }
 
         public IActionResult Delete(int id)
