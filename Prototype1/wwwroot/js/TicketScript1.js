@@ -12,9 +12,10 @@ function loadDataTable() {
 
                     return `<div class="from-group" >
                   
-                    ${data.slice(0, 10)}
+                    ${data.split(' ').shift() }
                     </div>`
-                }, "width": "15%" },
+                }, "width": "15%"
+            },
             {
                 data: 'totalTickets', "width": "15%"
             },
@@ -29,7 +30,7 @@ function loadDataTable() {
                     return `<div class="from-group btn-group" role="group">
                     <a href="/Ticket/EnterShow?id=${data}" class="btn btn-primary  mx-1 btn-sm">Edit</a>
                     <a OnClick=Delete('/Ticket/Delete/${data}') class="btn btn-danger mx-1 btn-sm">Delete</a>
-                    <a href="/Date/Enter?id=${data}" class="btn btn-success mx-1 btn-sm">Create</a>
+                    <a href="/Date/TicketData?id=${data}" class="btn btn-success mx-1 btn-sm">Create</a>
                     </div>`
                 },
                 "width": "15%"

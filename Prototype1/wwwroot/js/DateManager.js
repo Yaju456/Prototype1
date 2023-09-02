@@ -13,3 +13,4 @@
     $('#inputdate').attr('min', maxDate);
     $('#inputdate2').attr('min', maxDate);
 });
+

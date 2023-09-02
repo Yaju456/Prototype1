@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<ShowDateClass>
+
+<Table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                ShowTicketID
+            </th>
+            <th>
+                Time
+            </th>
+            <th>
+                Ticket No
+            </th>
+            <th>
+                Checked
+            </th>
+            <th>
+                Options
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var lili in Model)
+        {
+            <tr>
+
+                @{
+                    var data = Convert.ToString(lili.showTIcketsClass.ShowDate);
+                }
+                <td>
+                    @data.Split(' ').FirstOrDefault()
+                </td>
+                <td>
+                    @lili.showTIcketsClass.ShowID
+                </td>
+                <td>
+                    @lili.showTIcketsClass.Time
+                </td>
+                <td>
+                    @lili.Ticketno
+                </td>
+                <Td>
+                    @lili.Checked
+                </Td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Date" asp-action="Edit" asp-route-id="@lili.TicketId">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</Table>

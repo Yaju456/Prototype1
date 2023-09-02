@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Prototype1.Data;
 
@@ -11,9 +12,11 @@ using Prototype1.Data;
 namespace Prototype1.Migrations
 {
     [DbContext(typeof(ApplicationDbConetext))]
-    partial class ApplicationDbConetextModelSnapshot : ModelSnapshot
+    [Migration("20230829112838_change_in_showDateclass")]
+    partial class change_in_showDateclass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ShowDateClass
+<form method="post">
+    <input hidden asp-for="TicketId" />
+    <input hidden asp-for="ShowTicketID" />
+    <input hidden asp-for="Ticketno" />
+    <input hidden id="text" asp-for="Qrvalue" />
+    <div id="qrcode"></div>
+    <div class="form-group">
+        <label asp-for="Checked"></label>
+        <input asp-for="Checked" class="form-control" />
+        <span asp-validation-for="Checked"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PaymentMethod"></label>
+        <input asp-for="PaymentMethod" class="form-control" />
+        <span asp-validation-for="PaymentMethod"></span>
+    </div>
+
+    <div class="form-group" style="margin-bottom:10px;">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Enter" />
+</form>
+
+
+@section Scripts
+    {
+    <script src="/js/DateManager.js"></script>
+    <script>
+        const qrcode = document.getElementById("qrcode");
+        const textInput = document.getElementById("text");
+
+        const qr = new QRCode(qrcode);
+
+        textInput.oninput = (e) => {
+            qr.makeCode(e.target.value.trim());
+        };
+
+        qr.makeCode(textInput.value.trim());
+    </script>
+
+}

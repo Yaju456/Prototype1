@@ -99,6 +99,9 @@ namespace Prototype1.Controllers
                     message = "Error while Deleting"
                 });
             }
+            IQueryable<ShowDateClass> Showlist = _db.showDate.GetAll().AsQueryable();
+            Showlist = Showlist.Where(u => u.ShowTicketID == id);
+            _databud.ShowDate.RemoveRange(Showlist);
             _db.showTickets.Delete(ToDelete);
             _db.save();
             return Json(new { success = true, message = "Successfully Deleted" });

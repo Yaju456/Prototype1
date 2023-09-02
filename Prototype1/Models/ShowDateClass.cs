@@ -15,6 +15,8 @@ namespace Prototype1.Models
         [ForeignKey("ShowTicketID")]
         [ValidateNever]
         public ShowTIcketsClass? showTIcketsClass { get; set; }
+
+        public string ? Ticketno { get; set; }
         public string ? Qrvalue { get; set; }
 
         public int Checked { get; set; }

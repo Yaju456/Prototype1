@@ -125,7 +125,14 @@ namespace Prototype1.Controllers
             }
 
             IQueryable<ShowTIcketsClass> lili = _db.showTickets.GetAll(IncludeProperties: "Show").AsQueryable();
-            lili=lili.Where(x=>x.ShowID == ToDelete.Id);
+            List<ShowDateClass> Showlist = _db.showDate.GetAll().ToList();
+            lili = lili.Where(x=>x.ShowID == ToDelete.Id);
+            List<ShowDateClass> Todel = new List<ShowDateClass>(); 
+            foreach(var l in lili) 
+            {
+                Todel.AddRange(Showlist.Where(A=>A.ShowTicketID==l.Id));
+            }
+            _databud.ShowDate.RemoveRange(Todel);
             _databud.showTickets.RemoveRange(lili);
             _db.showClass.Delete(ToDelete);
             _db.save();
