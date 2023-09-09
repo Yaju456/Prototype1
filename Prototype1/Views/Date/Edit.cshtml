@@ -4,6 +4,7 @@
 @{
 }
 @model ShowDateClass
+<div class="container">
 <form method="post">
     <input hidden asp-for="TicketId" />
     <input hidden asp-for="ShowTicketID" />
@@ -15,7 +16,11 @@
         <input asp-for="Checked" class="form-control" />
         <span asp-validation-for="Checked"></span>
     </div>
-
+        <div class="form-group">
+            <label asp-for="occupied"></label>
+            <input asp-for="occupied" class="form-control" />
+            <span asp-validation-for="occupied"></span>
+        </div>
     <div class="form-group">
         <label asp-for="PaymentMethod"></label>
         <input asp-for="PaymentMethod" class="form-control" />
@@ -31,7 +36,7 @@
     <input type="submit" class="btn btn-primary" value="Enter" />
 </form>
 
-
+</div>
 @section Scripts
     {
     <script src="/js/DateManager.js"></script>

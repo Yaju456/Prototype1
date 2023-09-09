@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model BuyTicketVM
+<section class="single-product">
+    <div class="container">
+
+		<div class="row mt-20">
+			<div class="col-md-5">
+				<div class="single-product-slider">
+					<div id='carousel-custom' class='carousel slide' data-ride='carousel'>
+						<div class='carousel-outer'>
+							<!-- me art lab slider -->
+							<div class='carousel-inner '>
+								<div class='item active'>
+									<img src='~/images/shop/single-products/product-1.jpg' alt='' data-zoom-image="~/images/shop/single-products/product-1.jpg" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div class="single-product-details">
+					<h2>Eclipse Crossbody</h2>
+					<p class="product-price">$300</p>
+
+					<p class="product-description mt-20">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ipsum dicta quod, quia doloremque aut deserunt commodi quis. Totam a consequatur beatae nostrum, earum consequuntur? Eveniet consequatur ipsum dicta recusandae.
+					</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, velit, sunt temporibus, nulla accusamus similique sapiente tempora, at atque cumque assumenda minus asperiores est esse sequi dolore magnam. Debitis, explicabo.</p>
+				
+					<form  method="post">
+						<div class="product-size">
+							<span>Show</span>
+							<select asp-for="@Model.showId" asp-items="@Model.obj" >
+								<option selected disabled>--Select Options--</option>
+							</select>
+						</div>
+						<div class="product-quantity">
+							<span>Availabel Seats:</span>
+							<ul>
+								<li id="man"></li>
+							</ul>
+						</div>
+						<div class="product-quantity">
+							<span>Quantity:</span>
+							<div class="product-quantity-slider">
+								<input id="product-quantity" asp-for="@Model.buyTickets" type="text" value="0" name="product-quantity">
+							</div>
+							<span asp-validation-for="@Model.buyTickets"></span>
+						</div>
+						<input type="submit" value="Buy" class="btn btn-main mt-20 form-group" />
+					</form>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div></div>
+
+@section Scripts
+	{
+	<script>
+		$("select")
+			.on("change", function () {
+				var str = "";
+				$("select option:selected").each(function () {
+					str += $(this).val().split(' ')[0] + " ";
+				});
+				$("#man").text(str);
+			})
+			.trigger("change");
+	</script>
+}

@@ -39,10 +39,11 @@ namespace Prototype1.Controllers
                     byte [] salt = RandomNumberGenerator.GetBytes(64);
                     var hash= Rfc2898DeriveBytes.Pbkdf2(Encoding.ASCII.GetBytes(lili),salt,iterations,hashAlgorithm,keySize);
                     showDate.Qrvalue = Convert.ToHexString(hash);
+                    showDate.occupied = 0;
                     _db.showDate.Add(showDate);
                 }
                 _db.save();
-                classes = _db.showDate.GetAll().Where(a => a.ShowTicketID == id);
+                return RedirectToAction("Index");
 
             }
             return View(classes);
@@ -59,6 +60,10 @@ namespace Prototype1.Controllers
             if (id != null)
             {
                 dada= _db.showDate.GetSome(A=>A.TicketId==id);
+            }
+            else
+            {
+                return RedirectToAction("Index");
             }
             return View(dada);
         }

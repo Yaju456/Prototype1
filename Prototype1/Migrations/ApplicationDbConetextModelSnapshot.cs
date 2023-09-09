@@ -78,6 +78,9 @@ namespace Prototype1.Migrations
                     b.Property<string>("Ticketno")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("occupied")
+                        .HasColumnType("int");
+
                     b.HasKey("TicketId");
 
                     b.HasIndex("ShowTicketID");

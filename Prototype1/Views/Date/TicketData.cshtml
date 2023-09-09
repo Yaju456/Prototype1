@@ -4,7 +4,7 @@
 @{
 }
 @model IEnumerable<ShowDateClass>
-
+<div class="container">
 <Table class="table">
     <thead>
         <tr>
@@ -22,6 +22,9 @@
             </th>
             <th>
                 Checked
+            </th>
+            <th>
+                Occupied
             </th>
             <th>
                 Options
@@ -48,9 +51,13 @@
                 <td>
                     @lili.Ticketno
                 </td>
+                
                 <Td>
                     @lili.Checked
                 </Td>
+                    <td>
+                        @lili.occupied
+                    </td>
                 <td>
                     <a class="btn btn-primary" asp-controller="Date" asp-action="Edit" asp-route-id="@lili.TicketId">Edit</a>
                 </td>
@@ -58,3 +65,4 @@
         }
     </tbody>
 </Table>
+</div>

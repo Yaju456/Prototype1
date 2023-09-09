@@ -8,48 +8,115 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Prototype1.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+   
+    <link rel="stylesheet" href="~/nav/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/plugins/themefisher-font/style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="~/plugins/bootstrap/css/bootstrap.min.css">
+
+    <!-- Animate css -->
+    <link rel="stylesheet" href="~/plugins/animate/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="~/plugins/slick/slick.css">
+    <link rel="stylesheet" href="~/plugins/slick/slick-theme.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="~/css/style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
+         <nav class="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm navbar-inverse" style="position:fixed;">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Prototype1</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <h1 class="mb-0"><span style="color:red">Moks</span>hada</h1>
+                </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar"  data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="navbar-nav ms-auto nav">
+                        <li class="nav-item active">
+                            <a class="nav-link mx-2 text-uppercase active" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+						</li>
+                        <li class="nav-item ">
+                            <a class="nav-link mx-2 text-uppercase" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Show" asp-action="Index">Show Details</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Ticket" asp-action="Index">Tickets Deatils</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Date" asp-action="Index">All Tickets</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+					
+                        <li class="nav-item ">
+                            <a class="nav-link mx-2 text-uppercase" asp-controller="Show" asp-action="Index">Show Details</a>
+						</li>
+                        <li class="nav-item ">
+                            <a class="nav-link mx-2 text-uppercase" asp-controller="Ticket" asp-action="Index">Tickets Deatils</a>
+						</li>
+                        <li class="nav-item ">
+                            <a class="nav-link mx-2 text-uppercase" asp-controller="Date" asp-action="Index">All Tickets</a>
+						</li>
+					</ul>
+                    <ul class="navbar-nav ms-auto active">
+						<li class="nav-item">
+							<a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-cart-shopping me-1"></i> Cart</a>
+						</li>
+                        <li class="nav-item ">
+							<a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-circle-user me-1"></i> Account</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
     </header>
-    <div class="container">
+    <div @*class="container"*@ style="margin-top:5.7rem;margin-bottom:10rem;">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Prototype1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+    <footer class="footer section text-center" style="padding:0px;"> 
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="social-media" style="margin:0px">
+                        <li>
+                            <a href="https://www.facebook.com/themefisher">
+                                <i class="tf-ion-social-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/themefisher">
+                                <i class="tf-ion-social-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.twitter.com/themefisher">
+                                <i class="tf-ion-social-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.pinterest.com/themefisher/">
+                                <i class="tf-ion-social-pinterest"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="footer-menu text-uppercase" style="margin:0px">
+                        <li>
+                            <a href="contact.html">CONTACT</a>
+                        </li>
+                        <li>
+                            <a href="shop.html">SHOP</a>
+                        </li>
+                        <li>
+                            <a href="pricing.html">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">PRIVACY POLICY</a>
+                        </li>
+                    </ul style="margin:0px">
+                    <p class="copyright-text" style="margin:0px">Copyright &copy;2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></p>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -60,6 +127,33 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
     </script>
+
+
+     <script src="~/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="~/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <!-- Instagram Feed Js -->
+    <script src="~/plugins/instafeed/instafeed.min.js"></script>
+    <!-- Video Lightbox Plugin -->
+    <script src="~/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <!-- Count Down Js -->
+    <script src="~/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+    <!-- slick Carousel -->
+    <script src="~/plugins/slick/slick.min.js"></script>
+    <script src="~/plugins/slick/slick-animation.min.js"></script>
+
+    <!-- Google Mapl -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script type="text/javascript" src="~/plugins/google-map/gmap.js"></script>
+
+    <!-- Main Js File -->
+    <script src="~/js/script.js"></script>
+
+    <script src="~/nav/bootstrap.min.js"></script>
+
+    <!-- Slick Slider -->
+    <script src="~/nav/slick.min.js"></script>
+    <script src="~/js/theme.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

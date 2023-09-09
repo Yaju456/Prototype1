@@ -4,6 +4,7 @@
 @{
 }
 @model ShowTicketsVM
+<div class="container">
 <form method="post">
     <input hidden asp-for="@Model.tIcketsClass.Id" />
     <div class="form-group">
@@ -41,7 +42,7 @@
     <input type="submit" class="btn btn-primary" value="Enter" />
 </form>
 
-
+</div>
 @section Scripts
     {
     <script src="/js/DateManager.js"></script>

@@ -1,8 +1,102 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="hero-slider">
+    <div class="slider-item th-fullpage hero-area" style="background-image:url( @Url.Content("~/images/slider/slider-1.jpg"));">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 text-center">
+                    <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
+                    <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The beauty of nature <br> is hidden in details.</h1>
+                    <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider-item th-fullpage hero-area" style="background-image:  url( @Url.Content("~/images/slider/slider-3.jpg"));">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 text-left">
+                    <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
+                    <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The beauty of nature <br> is hidden in details.</h1>
+                    <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider-item th-fullpage hero-area" style="background-image: url( @Url.Content("~/images/slider/slider-2.jpg"));">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 text-right">
+                    <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
+                    <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The beauty of nature <br> is hidden in details.</h1>
+                    <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="container">
+
+<div class="col-md-4">
+    <div class="product-item">
+        <div class="product-thumb">
+            <img class="img-responsive" src="~/images/shop/products/product-3.jpg" alt="product-img" />
+            <div class="preview-meta">
+    <ul>
+        <li>
+            <div class="container">
+
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+                <!-- Modal -->
+               
+
+            </div>
+
+        </li>
+    </ul>
+</div>
+        </div>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <h4 class="modal-title w-100 text-center">Name</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align:center">
+                            <img class="img-responsive" src="~/images/shop/products/product-3.jpg" alt="product-img" style="width:50%;text-align:center;" />
+                        </div>
+                        
+
+                        <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+            <div class="product-content">
+                <h4>Name</h4>
+                <p class="price">Actor</p>
+            </div>
+    </div>
+</div>
+
+</div>   
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br /><p>this </p>

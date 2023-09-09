@@ -12,7 +12,7 @@ function loadDataTable() {
 
                     return `<div class="from-group" >
                   
-                    ${data.split(' ').shift() }
+                    ${data.slice(0, 10)}
                     </div>`
                 }, "width": "15%"
             },

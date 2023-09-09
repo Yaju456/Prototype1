@@ -27,5 +27,7 @@ namespace Prototype1.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string ? Email { get; set; }
 
+        public int occupied { get; set; }   
+
     }
 }
